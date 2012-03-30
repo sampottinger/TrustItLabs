@@ -1,0 +1,160 @@
+html
+{
+	width:100%;
+    height:100%;
+    font-family:arial;
+    font-size:14px;
+    color:black;
+    background-image:url('/static/img/bg.png');
+}
+
+body
+{
+	width:900px;
+	height:500px;
+	background-color:white;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    padding-top:10px;
+    margin-top:50px;
+    margin-left:auto;
+    margin-right:auto;
+    background-color:white;
+}
+
+a
+{
+	color:#0D456A;
+}
+
+a:hover
+{
+	color:black;
+}
+
+.currentPageLink
+{
+	background-color:#0D456A;
+	color:white;
+	text-decoration:none;
+}
+
+.currentPageLink:hover
+{
+	color:white;
+}
+
+.smallBadge
+{
+	max-width:200px;
+	max-height:70px;
+}
+
+.peopleImageCell
+{
+	text-align:center;
+	width:100px;
+	padding:5px;
+	-moz-border-radius: 10px;
+    border-radius: 10px;
+}
+
+.peopleImageCell img
+{
+	border-width:5px;
+	border-style:solid;
+	border-color:#0D456A;
+	-moz-border-radius: 10px;
+    border-radius: 10px;
+}
+
+.firstName
+{
+	color:#939393;
+}
+
+.lastName
+{
+	color:#585858;
+}
+
+.personDescription
+{
+	color:black;
+}
+
+#navSeperator
+{
+	height:5px;
+	background-image:url("/static/img/navbarsep.png");
+	margin-top:120px;
+}
+
+#logo
+{
+	width:300px;
+	float:left;
+}
+
+#links
+{
+	list-style-type: none;
+	display: block;
+	list-style-type: none;
+	padding-top:50px;
+}
+
+#links li a
+{
+	margin-right:20px;
+	float:left;
+	font-size:18px;
+	padding:5px;
+}
+
+#navBar
+{
+	height:180px;
+}
+
+#titleBar
+{
+	font-family:arial;
+	font-size:50px;
+	width:250px;
+	text-align:right;
+	padding-top:5px;
+	margin-top:5px;
+	margin-bottom:5px;
+	float:left;
+}
+
+#bodySection
+{
+	margin-left:280px;
+	overflow:auto;
+	width:550px;
+	height:300px;
+}
+
+#kitchenLogo
+{
+	margin-top:5px;
+}
+
+#peopleDescription td
+{
+	padding-bottom:9px;
+	vertical-align:top;
+}
+
+#peopleDescription h3
+{
+	font-weight:bold;
+	font-size:18px;
+	font-family:times;
+	margin-top:3px;
+	padding-top:3px;
+	margin-bottom:0px;
+	padding-bottom:0px;
+}
