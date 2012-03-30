@@ -1,0 +1,42 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+            "http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+
+    <head>
+        <title>TrustItLabs: {{ title }}</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <link rel="stylesheet" type="text/css" href="/static/css/trustitlabs.css">
+        {% block head %}{% endblock %}
+    </head>
+
+    <body>
+        
+        <div id="navBar">
+            <img id="logo" src="/static/img/logo.png" />
+            <ul id="links">
+                <li><a class="{{ 'currentPageLink' if page_name == 'home' else 'otherPageLink' }}" href="/">home</a></li>
+                <li><a class="{{ 'currentPageLink' if page_name == 'vision' else 'otherPageLink' }}" href="/vision">vision</a></li>
+                <li><a class="{{ 'currentPageLink' if page_name == 'news' else 'otherPageLink' }}" href="/news">news</a></li>
+                <li><a class="{{ 'currentPageLink' if page_name == 'progress' else 'otherPageLink' }}" href="/progress">progress</a></li>
+                <li><a class="{{ 'currentPageLink' if page_name == 'research' else 'otherPageLink' }}" href="/research">research</a></li>
+                <li><a class="{{ 'currentPageLink' if page_name == 'people' else 'otherPageLink' }}" href="/people">people</a></li>
+            </ul>
+            <div id="navSeperator"></div>
+        </div>
+
+        <div id="bodyBar">
+            
+            <div id="titleBar">
+                {{ title }}
+            </div>
+
+            <div id="bodySection">
+                {% block body %}{% endblock %}
+            </div>
+
+        </div>
+
+    </body>
+
+</html>
