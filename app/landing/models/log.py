@@ -6,6 +6,11 @@ Models related to maintaining a log regarding test performance
 
 from ..support.util import Singleton
 
+log_entry_associations = db.Table("log_entry_associations",
+        db.Column("entry_id", db.Integer, db.ForeignKey("log_entry_model.id")),
+        db.Column("log_id", db.Integer, db.ForeignKey("log_model.id"))
+        )
+
 class LogEntryModel(db.Model):
     """
     Simple timestamped record regarding an abnormal test performance
@@ -17,6 +22,8 @@ class LogEntryModel(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.Text)
     timestamp = db.Column(db.PickleType)
+    logs = db.Relationship("LogModel", secondary=tags,
+            backref=db.backref("log_entry_models", lazy="dynamic"))
 
     def __init__(self, timestamp, message):
         """
@@ -52,8 +59,10 @@ class LogModel(db.Model):
     Collection of timestamped records with errors and messages regarding a test
     """
 
+    LOG_NAME_MAX_SIZE = 120
+
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.Text)
+    name = db.Column(db.String(LOG_NAME_MAX_SIZE))
     test_id = db.Column(db.Integer, db.ForeignKey("test_model.id"))
 
     def __init__(self, test_id, name):
@@ -77,7 +86,7 @@ class LogModel(db.Model):
         """
         raise NotImplementedError("Not yet implemented")
         
-    def get_test(self):
+    def get_test_id(self):
         """
         Get the test this log is for
 
