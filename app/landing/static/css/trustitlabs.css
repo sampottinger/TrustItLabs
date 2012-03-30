@@ -16,6 +16,7 @@ body
     -moz-border-radius: 10px;
     border-radius: 10px;
     padding-top:10px;
+	padding-bottom:25px;
     margin-top:50px;
     margin-left:auto;
     margin-right:auto;
@@ -24,7 +25,7 @@ body
 
 a
 {
-	color:#0D456A;
+	color:#999;
 }
 
 a:hover
@@ -34,7 +35,7 @@ a:hover
 
 .currentPageLink
 {
-	background-color:#0D456A;
+	background-color:#CCC;
 	color:white;
 	text-decoration:none;
 }
@@ -83,17 +84,12 @@ a:hover
 	color:black;
 }
 
-#navSeperator
-{
-	height:5px;
-	background-image:url("/static/img/navbarsep.png");
-	margin-top:120px;
-}
 
 #logo
 {
-	width:300px;
+	width:250px;
 	float:left;
+	padding:30px;
 }
 
 #links
@@ -119,13 +115,13 @@ a:hover
 
 #titleBar
 {
-	font-family:arial;
-	font-size:50px;
-	width:250px;
+	font-family:Comfortaa; color:#099;
+	font-size:30px;
+	width:175px;
 	text-align:right;
-	padding-top:5px;
+	padding:10px;
 	margin-top:5px;
-	margin-bottom:5px;
+	margin-bottom:15px;
 	float:left;
 }
 
@@ -152,7 +148,7 @@ a:hover
 {
 	font-weight:bold;
 	font-size:18px;
-	font-family:times;
+	font-family:Comfortaa;
 	margin-top:3px;
 	padding-top:3px;
 	margin-bottom:0px;
