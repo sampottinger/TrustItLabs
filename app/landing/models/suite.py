@@ -167,3 +167,45 @@ class SuiteAuthorRoleModel:
         raise NotImplementedError("Not yet implemented")
 
 
+@singleton
+class TestSuiteServicer:
+    """ Logic for management of tests, their reviews, and their authors """
+
+    def __init__(self):
+        pass
+
+    def get_test_reviews(self, suite_id):
+        """
+        Get all of the reviews written for the tests of a given test suite
+
+        @param suite_id: The unique numerical id of the suite whose reviews are
+                        being requested
+        @type suite_id: Integer
+        @return: All of the reviews written for the tests of a given test suite
+        @rtype: Collection of Integers (TestReviewModel ids)
+        """
+        raise NotImplementedError("Not yet implemented")
+
+    def get_tests(self, suite_id):
+        """
+        Get all of the tests in the given test suite
+
+        @param suite_id: The unique numerical id of the test suite whose tests are
+                         being requested
+        @type suite_id: Integer
+        @return: All of the tests in the given test suite
+        @rtype: Collection of Integers (TestModel ids)
+        """
+        raise NotImplementedError("Not yet implemented")
+
+    def get_authors(self, suite_id):
+        """
+        Get all of the authors who can edit or experiment with the given suite
+
+        @param suite_id: The unique numerical id of the test suite whose authors
+                         are being requested
+        @return: All of the users who are authors to the given suite
+        @rtype: Collection of Integers (TestModel ids)
+        """
+        raise NotImplementedError("Not yet implemented")
+

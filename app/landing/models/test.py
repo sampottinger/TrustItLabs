@@ -4,6 +4,8 @@ Models related to user submitted tests
 @auth: Sam Pottinger
 """
 
+from ..util import singleton
+
 class TestModel(db.Model):
     """ Model containing information regarding a user submitted test routine """
     
@@ -206,7 +208,7 @@ class CollaboratorRoleModel(db.Model):
     
     id = db.Column(db.Integer, primary_key=True)
     test_id = db.Column(db.Integer, db.ForeignKey("test_model.id"))
-    review_id = db.Column(db.Integer, db.ForeignKey("review_model.id"))
+    user_id = db.Column(db.Integer, db.ForeignKey("user_model.id"))
 
     def __init__(self, test_id, user_id):
         """
