@@ -339,3 +339,70 @@ class TestResult:
         """
         raise NotImplementedError("Not yet implemented")
 
+@singleton
+class TestServicer:
+    """ High level logical unit for the management of test routines """
+
+    def __init__(self):
+        pass
+
+    def get_test_reviews(self, test_id):
+        """
+        Get the reviews for the given test
+
+        @param test_id: The unique numerical id of the test to get reviews for
+        @type test_id: Integer
+        @return: Iteratable over the reviews of the given test
+        @rtype: Iterable over Integers (ids of TestReviewModel)
+        """
+        raise NotImplementedError("Not yet implemented")
+
+    def add_test_review(self, test_id, author_id, body, raiting_value):
+        """
+        Create a new test review for the given test
+
+        @param test_id: The integer id of the test for which a review is being added
+        @type test_id: Integer
+        @param author_id: The integer id of the user that is creating this review
+        @type author_id: Integer
+        @param body: The textual body of the review being added
+        @type body: String
+        """
+        raise NotImplementedError("Not yet implemented")
+
+    def get_collaborators(self, test_id):
+        """
+        Get all of the users that are collaborators on the given test
+
+        @param test_id: The unique integer id of the test for which collaborators
+                        are being requested
+        @type test_id: Integer
+        @return: Iterable over the ids for the users that are collaborators 
+                 for the given test
+        @rtype: Iterable over Integers (ids for UserModel)
+        """
+        raise NotImplementedError("Not yet implemented")
+
+    def generate_key(self, test_id):
+        """
+        Generate a new access key for the given test
+
+        @param test_id: The unique integer id of the test for which a new key
+                        should be generated
+        @type test_id: Integer
+        @return: The new key for the given test
+        @rtype: String
+        """
+        raise NotImplementedError("Not yet implemented")
+
+    def get_run_records(self, test_id):
+        """
+        Get all of the run records saved for a given test
+
+        @param test_id: The unique integer id of the test for which run records
+                        are requested
+        @type test_id: Integer
+        @return: Iterable over ids of TestRunRecordModel instances
+        @rtype: Iterable over Integers
+        """
+        raise NotImplementedError("Not yet implemented")
