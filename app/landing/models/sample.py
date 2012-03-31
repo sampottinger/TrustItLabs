@@ -86,3 +86,68 @@ class SiteModel(db.Model):
         """
         raise NotImplementedError("Not yet implemented")
 
+class SiteSampleModel:
+    """ A user associated AnonymizedSiteSampleModel """
+
+    id = db.Column(db.Integer, primary_key=True)
+    sample_id = db.Column(db.Integer, db.ForeignKey("anonymized_site_sample_model.id"))
+
+    def __init__(self, target_sample_id):
+        """ 
+        Creates a new non-anonymized wrapper around an anonymized sample
+        
+        @param target_sample_id: The unique numerical id of the
+                                 AnonymizedSiteSampleModel that this record wraps
+        @type target_sample_id: Integer
+        """
+        raise NotImplementedError("Not yet implemented")
+
+    def get_anonymized_site_sample_id(self):
+        """
+        Gets the id of the anonymized site sample that this record wraps
+
+        @return: The unique numerical id of the AnonymizedSiteSampleModel 
+        @rtype: Integer
+        """
+        raise NotImplementedError("Not yet implemented")
+
+class SampleAuthorRoleModel:
+    """ An assocation that indicates that a user has access to a site sample """
+
+    id = db.Column(db.Integer, primary_key=True)
+    sample_id = db.Column(db.Integer, db.ForeignKey("site_sample_model.id"))
+    user_id = db.Column(db.Integer, db.ForeignKey("user_model.id"))
+
+    def __init__(self, user_id, sample_id):
+        """
+        Creates a new sample author record
+
+        @param user_id: The unique numerical id of the user that is being given
+                        permission to edit a site sample
+        @type user_id: Integer
+        @param sample_id: The unique numerical id of the sample that permission is
+                          being given to
+        @type sample_id: Integer
+        """
+        raise NotImplementedError("Not yet implemented")
+
+    def get_user_id(self):
+        """
+        Get the unique numerical id of the UserModel that this role record is for
+
+        @return: The unique numerical id of the user for which this record indicates
+                 permissions to edit a sample
+        @rtype: Integer
+        """
+        raise NotImplementedError("Not yet implemented")
+
+    def get_sample_id(self):
+        """
+        Get the unique numerical id of the SiteSampleModel that this record is for
+
+        @return: The unique numerical id of the sample that this record is giving
+                 a user access to
+        @rtype: Integer
+        """
+        raise NotImplementedError("Not yet implemented")
+
