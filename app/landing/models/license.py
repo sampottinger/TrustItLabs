@@ -7,13 +7,15 @@ used for sharing user contributions
 @auth: Sam Pottinger
 """
 
+from ..util import singleton
+
 class LicenseModel(db.Model):
     """ Structure with information about a license available for a test """
     
     LICENSE_NAME_MAX_SIZE = 120
 
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(LICENSE_NAME_MAX_SIZE))
+    name = db.Column(db.String(LICENSE_NAME_MAX_SIZE), unique=True)
     url = db.Column(db.Text)
 
     def __init__(self, name, url):
@@ -24,6 +26,7 @@ class LicenseModel(db.Model):
         @type name: String
         @param url: The url where more information about this license can be found
         @type url: String
+        @note: Name will be enforced to be unique
         """
         raise NotImplementedError("Not yet implemented")
 
@@ -43,5 +46,21 @@ class LicenseModel(db.Model):
         @return: The url where additional information about this license
                  can be found (often its actual full text)
         @rtype: String
+        """
+        raise NotImplementedError("Not yet implemented")
+
+@singleton
+class LicenseServicer:
+    """ Logical unit with suplimental license handeling logic """
+
+    def __init__(self):
+        pass
+
+    def get_license_by_name(self, name):
+        """
+        Get a license by its common name as opposed to its numerical id
+
+        @param name: The name of the license to lookup
+        @type name: String
         """
         raise NotImplementedError("Not yet implemented")
