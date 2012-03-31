@@ -21,7 +21,7 @@ class LogEntryModel(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.Text)
-    timestamp = db.Column(db.PickleType)
+    timestamp = db.Column(db.DateTime)
     logs = db.Relationship("LogModel", secondary=tags,
             backref=db.backref("log_entry_models", lazy="dynamic"))
 
