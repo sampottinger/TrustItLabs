@@ -17,11 +17,13 @@ class TestModel(db.Model):
     key = db.Column(db.String(TEST_KEY_SIZE))
     source_loc = db.Column(db.Text)
     method = db.Column(db.Integer)
+    interpret_results = db.Column(db.Boolean)
+    golf_scoring = db.Column(db.Boolean)
     num_users = db.Column(db.Integer)
     num_usages = db.Column(db.Integer)
 
     def __init__(self, license_id, controller_url, key, source_loc, 
-            method, num_users=0, num_usages=0):
+            method, interpret_results, golf_scoring, num_users=0, num_usages=0):
         """
         Create a new record of a user submitted test routine
 
@@ -40,6 +42,15 @@ class TestModel(db.Model):
         @param method: The method to use when communicating with this web app. Should
                        be of constant GET or POST
         @type method: Integer
+        @param interpret_results: Flag to indicate if result values should be
+                                  statistically interpreted / normalized by the 
+                                  application or the user-created test 
+                                  (True for app responsibility and False for 
+                                   test responsibilty)
+        @type interpret_results: Boolean
+        @param golf_scoring: If True, lower scores indicate better performance.
+                             If False, higher scores indicate better performance.
+        @type golf_scoring: Boolean
         @keyword num_users: The number of users that this test has (number of users
                           with test suites that have this test). Default to 0.
         @type num_users: Integer
@@ -133,6 +144,34 @@ class TestModel(db.Model):
         @param new_loc: The new URL at which users can find the source of this
                         test and / or more information about it
         @type new_loc: String
+        """
+        raise NotImplementedError("Not yet implemented")
+
+    def should_app_interpret_results(self):
+        """
+        Determines if this test' developers interpret their own raw values
+
+        Determines if this test statistically interprets and normalizes its own
+        values or not. If this is the application's responsibility (as opposed to
+        the test's), the application will normalize results to determine how
+        raw values correspond to site performance on those tests
+
+        @return: True if the application is interpreting raw values reported
+                 by the test and False if the application is treating the values
+                 reported by the test as already interpreted
+        @rtype: Boolean
+        """
+        raise NotImplementedError("Not yet implemented")
+
+    def test_uses_golf_scoring(self):
+        """
+        Determines if lower raw test scores indicate better performance or not
+
+        @return: True if lower scores indicate better test performance and False
+                 if higher scores indicate better test performance (True if
+                 scores and performance are directly correlated and False if
+                 inversely proportional
+        @rtype: Boolean
         """
         raise NotImplementedError("Not yet implemented")
 
