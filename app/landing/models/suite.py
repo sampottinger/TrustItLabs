@@ -209,3 +209,32 @@ class TestSuiteServicer:
         """
         raise NotImplementedError("Not yet implemented")
 
+@singleton
+class TestUsageServicer:
+    """ Logic for managing which tests get used in which suites """
+
+    def __init__(self):
+        pass
+
+    def register_usage(self, test_suite_id, test_id):
+        """
+        Indicates that a test is being used in a test suite
+
+        @param test_suite_id: The unique numerical id of a test suite for which
+                              a test is being added
+        @type test_suite_id: Integer
+        @return: Id of the resulting TestUsageModel
+        @rtype: Integer
+        """
+        raise NotImplementedError("Not yet implemented")
+
+    def indicate_end_of_use(self, test_usage_id):
+        """
+        Indicates that a test_usage should be unregistered / removed
+
+        @param test_usage_id: Unique numerical id of a TestUsageModel to remove
+                              and clean up after
+        @type test_usage_id: Integer
+        """
+        raise NotImplementedError("Not yet implemented")
+
