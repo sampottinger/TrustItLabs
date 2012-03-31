@@ -299,4 +299,40 @@ class TestRunRecordModel(db.Model):
         """
         raise NotImplementedError("Not yet implemented")
 
+class TestResult:
+    """ Record of a result of test with scores reported by test """
 
+    id = db.Column(db.Integer, primary_key=True)
+    site_id = db.Column(db.Integer, db.ForeignKey("site_model.id"))
+    test_id = db.Column(db.Integer, db.ForeignKey("test_model.id"))
+
+    def __init__(self, site_id, test_id, raw_score):
+        """
+        Creates a new record of the result of a test run on a site
+
+        @param site_id: The unique id of the site that the test ran on
+        @type site_id: Integer
+        @param test_id: The unique id of the test that ran
+        @type test_id: Integer
+        @param raw_score: The raw score reported by the test itself
+        @type raw_score: Float
+        """
+        raise NotImplementedError("Not yet implemented")
+
+    def get_site_id(self):
+        """
+        Get the site on which this test was run and this result is for
+
+        @return: The unique numerical id of the site on which this test was run
+        @rtype: Integer
+        """
+        raise NotImplementedError("Not yet implemented")
+
+    def get_test_id(self):
+        """
+        Get the id of the test that produced this result
+
+        @return: The unique id of the test that produced this record
+        @rtype: Integer
+        """
+        raise NotImplementedError("Not yet implemented")
