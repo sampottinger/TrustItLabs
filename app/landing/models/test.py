@@ -11,6 +11,7 @@ class TestModel(db.Model):
     GET = 1
     POST = 3
 
+    id = db.Column(db.Integer, primary_key=True)
     license_id = db.Column(db.Integer, db.ForeignKey("license_model.id"))
     controller_url = db.Column(db.Text)
     key = db.Column(db.String(TEST_KEY_SIZE))
@@ -258,6 +259,5 @@ class TestRunRecordModel(db.Model):
         @rtype: DateTime instance
         """
         raise NotImplementedError("Not yet implemented")
-
 
 
