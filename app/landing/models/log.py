@@ -4,7 +4,7 @@ Models related to maintaining a log regarding test performance
 @auth: Sam Pottinger
 """
 
-from ..support.util import Singleton
+from ..support.util import singleton
 
 log_entry_associations = db.Table("log_entry_associations",
         db.Column("entry_id", db.Integer, db.ForeignKey("log_entry_model.id")),
@@ -95,7 +95,7 @@ class LogModel(db.Model):
         """
         raise NotImplementedError("Not yet implemented")
 
-@Singleton
+@singleton
 class LogServicer:
     """
     Singleton entry factory and support logic for log related tasks
